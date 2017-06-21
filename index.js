@@ -3,7 +3,7 @@
 let express = require("express"),
     request = require("request"),
     bodyParser = require("body-parser"),
-    CONF = require('conf');
+    CONF = require('./conf');
 
 let app = express();
 app.use(bodyParser.urlencoded({extended: false}))
