@@ -32,7 +32,7 @@ app.get("/webhook", function (req, res) {
 
 
 // Add greeting message
-app.post('/addGreeting', function (req, response) {
+app.get('/addGreeting', function (req, response) {
     let greeting_message = 'Hello !',
         url = "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=" + process.env.PAGE_ACCESS_TOKEN
 
