@@ -96,13 +96,13 @@ function processMessage(event) {
                 case "download":
 
                 case "reco":
-                    sendMessage(senderId, {text: "les recommandations personnalisées"});
+                    sendMessage(senderId, {text: msg + "les recommandations personnalisées"});
                     break;
                 case "whislist":
-                    sendMessage(senderId, {text: " la whishlist"});
+                    sendMessage(senderId, {text: msg + " la whishlist"});
                     break;
                 case "profil":
-                    sendMessage(senderId, {text: " les profils"});
+                    sendMessage(senderId, {text: msg + " les profils"});
                     break;
                 case "playlist":
                     sendMessage(senderId, {text: msg + "les playlists"});
