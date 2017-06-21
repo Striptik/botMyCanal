@@ -96,22 +96,22 @@ function processMessage(event) {
                 case "download":
 
                 case "reco":
-                    sendMessage(senderId, {text: msg + "les recommandations personnalisées"});
+                    sendMessage(senderId, {text: "[LILIANE] : " + msg + "les recommandations personnalisées"});
                     break;
                 case "whislist":
-                    sendMessage(senderId, {text: msg + " la whishlist"});
+                    sendMessage(senderId, {text: "[LILIANE] : " + msg + " la whishlist"});
                     break;
                 case "profil":
-                    sendMessage(senderId, {text: msg + " les profils"});
+                    sendMessage(senderId, {text: "[LILIANE] : " + msg + " les profils"});
                     break;
                 case "playlist":
-                    sendMessage(senderId, {text: msg + "les playlists"});
+                    sendMessage(senderId, {text: "[CATHERINE] : " + msg + "les playlists"});
                     break;
                 case "alerte programme":
-                    sendMessage(senderId, {text: msg + "les alertes programmes"});
+                    sendMessage(senderId, {text: "[CATHERINE] : " + msg + "les alertes programmes"});
                     break;
                 default:
-                    sendMessage(senderId, {text: "Désolé, on s'est posée la question, on ne comprend pas ... une autre formulation peut être ?"});
+                    sendMessage(senderId, {text: "[CATHERINE] : Désolé, on s'est posée la question, on ne comprend pas ... une autre formulation peut être ?"});
                     break;
             }
         } else if (message.attachments) {
@@ -147,7 +147,7 @@ function processPostback(event) {
                 let name = bodyObj.first_name
                 greeting = "Bonjour " + name + " ! "
             }
-            let message = greeting + 'Nous sommes Catherine et Liliane. En quoi pouvons nous vous être utile ?'
+            let message = greeting + '[LILIANE] : Nous sommes Catherine et Liliane. En quoi pouvons nous vous être utile ?'
             sendMessage(senderId, {text: message})
         });
     }
