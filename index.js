@@ -30,6 +30,29 @@ app.get("/webhook", function (req, res) {
     }
 })
 
+
+// Add greeting message
+app.post('/addGreeting', function (req, response) {
+    let greeting_message = 'Hello !',
+        url = "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=" + process.env.PAGE_ACCESS_TOKEN
+
+    request({
+        url: url,
+        method: "POST",
+        get_started: {
+            payload: greeting_message
+        }
+    }, function (err, response, body) {
+        if (err) {
+            console.log('Error on adding greeting message - ' + err)
+            return response.status(500).json({error : err, message: 'Greeting message Error'})
+        }
+        console.log(response, body)
+        return response.status(200).json({error: null, message: 'OK'})
+    })
+})
+
+
 // All callbacks for Messenger will be POST-ed here
 app.post("/webhook", function (req, res) {
     // Make sure this is a page subscription
