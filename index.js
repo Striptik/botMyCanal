@@ -47,7 +47,8 @@ app.get('/addGreeting', function (req, response) {
             console.log('Error on adding greeting message - ' + err)
             return response.status(500).json({error : err, message: 'Greeting message Error'})
         }
-        console.log(response, body)
+        //console.log(response, body)
+        console.log('OKKKKKKK')
         return response.status(200).json({error: null, message: 'OK'})
     })
 })
