@@ -58,24 +58,67 @@ app.get('/addGreeting', function (req, response) {
 // All callbacks for Messenger will be POST-ed here
 app.post("/webhook", function (req, res) {
     // Make sure this is a page subscription
-    if (req.body.object === 'page') {
+    if (req.body.object === "page") {
         // Iterate over each entry
         // There may be multiple entries if batched
         req.body.entry.forEach(function(entry) {
-            console.log('==========\n')
-            console.log('recipient', entry.messaging)
-            //  console.log('postback', entry.messaging.postback)
             // Iterate over each messaging event
             entry.messaging.forEach(function(event) {
                 if (event.postback) {
-                    processPostback(event)
+                    processPostback(event);
+                } else if (event.message) {
+                    processMessage(event);
                 }
             });
         });
-        console.log('FINISH SUCCESS !')
-        res.sendStatus(200)
+
+        res.sendStatus(200);
     }
 });
+
+function processMessage(event) {
+    if (!event.message.is_echo) {
+        let message = event.message;
+        let senderId = event.sender.id;
+
+        console.log("Received message from senderId: " + senderId);
+        console.log("Message is: " + JSON.stringify(message));
+
+        // You may get a text or attachment but not both
+        if (message.text) {
+            var formattedMsg = message.text.toLowerCase().trim();
+
+            // If we receive a text message, check to see if it matches any special
+            // keywords and send back the corresponding movie detail.
+            // Otherwise, search for new movie.
+            let msg = 'Je peux vous inviter à regarder la vidéo sur '
+            switch (formattedMsg) {
+                case "download":
+
+                case "reco":
+                    sendMessage(senderId, {text: "les recommandations personnalisées"});
+                    break;
+                case "whislist":
+                    sendMessage(senderId, {text: " la whishlist"});
+                    break;
+                case "profil":
+                    sendMessage(senderId, {text: " les profils"});
+                    break;
+                case "playlist":
+                    sendMessage(senderId, {text: msg + "les playlists"});
+                    break;
+                case "alerte programme":
+                    sendMessage(senderId, {text: msg + "les alertes programmes"});
+                    break;
+                default:
+                    sendMessage(senderId, {text: "Désolé, on s'est posée la question, on ne comprend pas ... une autre formulation peut être ?"});
+                    break;
+            }
+        } else if (message.attachments) {
+            sendMessage(senderId, {text: "Désolé, on s'est posé la question, on ne comprend pas ..."});
+        }
+    }
+}
 
 function processPostback(event) {
     console.log('PROCESS_POSTBACK')
@@ -104,7 +147,7 @@ function processPostback(event) {
                 let name = bodyObj.first_name
                 greeting = "Bonjour " + name + " ! "
             }
-            let message = greeting + 'Nous sommes Catherine et Liliane. Pourquoi vous venez nous faire chier ?'
+            let message = greeting + 'Nous sommes Catherine et Liliane. En quoi pouvons nous vous être utile ?'
             sendMessage(senderId, {text: message})
         });
     }
