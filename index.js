@@ -63,8 +63,8 @@ app.post("/webhook", function (req, res) {
         // There may be multiple entries if batched
         req.body.entry.forEach(function(entry) {
             console.log('==========\n')
-            console.log('recipient', entry.messaging.recipient)
-            console.log('postback', entry.messaging.postback)
+            console.log('recipient', entry.messaging)
+            //console.log('postback', entry.messaging.postback)
             // Iterate over each messaging event
             entry.messaging.forEach(function(event) {
                 if (event.postback) {
