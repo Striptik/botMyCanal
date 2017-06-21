@@ -64,7 +64,7 @@ app.post("/webhook", function (req, res) {
         req.body.entry.forEach(function(entry) {
             console.log('==========\n')
             console.log('recipient', entry.messaging)
-            //console.log('postback', entry.messaging.postback)
+            //  console.log('postback', entry.messaging.postback)
             // Iterate over each messaging event
             entry.messaging.forEach(function(event) {
                 if (event.postback) {
@@ -104,7 +104,7 @@ function processPostback(event) {
                 let name = bodyObj.first_name
                 greeting = "Bonjour " + name + " ! "
             }
-            let message = greeting + "Nous sommes Catherine et Vivianne. Pourquoi vous venez nous faire chier ?"
+            let message = greeting + 'Nous sommes Catherine et Liliane. Pourquoi vous venez nous faire chier ?'
             sendMessage(senderId, {text: message})
         });
     }
