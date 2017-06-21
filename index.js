@@ -2,7 +2,8 @@
 
 let express = require("express"),
     request = require("request"),
-    bodyParser = require("body-parser");
+    bodyParser = require("body-parser"),
+    CONF = require('conf');
 
 let app = express();
 app.use(bodyParser.urlencoded({extended: false}))
@@ -62,7 +63,8 @@ app.post("/webhook", function (req, res) {
         // There may be multiple entries if batched
         req.body.entry.forEach(function(entry) {
             console.log('==========\n')
-            console.log(entry)
+            console.log('recipient', entry.messaging.recipient)
+            console.log('postback', entry.messaging.postback)
             // Iterate over each messaging event
             entry.messaging.forEach(function(event) {
                 if (event.postback) {
@@ -70,16 +72,20 @@ app.post("/webhook", function (req, res) {
                 }
             });
         });
+        console.log('FINISH SUCCESS !')
         res.sendStatus(200)
     }
 });
 
 function processPostback(event) {
+    console.log('PROCESS_POSTBACK')
     let senderId = event.sender.id,
         payload = event.postback.payload;
 
-    // Greeting
-    if (payload === "Greeting") {
+    // GET STARTED ACTION
+    console.log(event)
+    if (payload === CONF.payload_greeting) {
+        console.log('INIT !')
         // Get user's first name from the User Profile API
         // and include it in the greeting
         request({
