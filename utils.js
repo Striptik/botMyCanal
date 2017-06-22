@@ -1,7 +1,7 @@
 let request = require('request'),
     CONF = require('./conf')
 
-// Handle a message
+// Handle a text message
 function processMessage(event) {
     if (!event.message.is_echo) {
         let message = event.message;
@@ -46,11 +46,12 @@ function processMessage(event) {
     }
 }
 
-// Handle a Postback  (greeting, build answer)
+// Handle a Postback  (greeting, build answer, list)
 function processPostback(event) {
     let senderId = event.sender.id,
         payload = event.postback.payload
 
+    // function to create
     if (payload === CONF.payload_greeting) {
         // Get user's first name from the User Profile API
         // and include it in the greeting
@@ -74,30 +75,42 @@ function processPostback(event) {
             sendMessage(senderId, {text: message})
         });
     }
+}
 
-
+//Send Message request
+function sendMessageRequest(json, callback) {
+    request({
+        url: CONF.messages_url,
+        qs: {access_token: CONF.page_token},
+        method: 'POST',
+        json: json
+    }, function (error, res, body) {
+        if (error) {
+            console.log('[SENDMSGREQ] - Error sending message request : ' + res.error)
+            console.log(error)
+            return callback(error)
+        }
+        return callback(null, body)
+    });
 }
 
 // Send message to user
 function sendMessage(recipientId, message) {
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
-        method: 'POST',
-        json: {
-            recipient: {id: recipientId},
-            message: message,
+    let json = {
+        recipient: {id: recipientId},
+        message: message
+    }
+    sendMessageRequest(json, function(err, res) {
+        if (err) {
+            console.log('Message not sent');
         }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('[SENDMSG] - Error sending message : ' + response.error);
-        }
-        console.log(body)
+        console.log('Message Text sent ! ' + res.message_id)
     });
 }
 
 module.exports = {
     sendMessage,
+    sendMessageRequest,
     processMessage,
     processPostback
 }
