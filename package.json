@@ -26,6 +26,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongoose": "^4.10.7",
+    "recastai": "^3.4.1",
     "request": "^2.81.0"
   },
   "engines": {
