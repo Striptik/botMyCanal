@@ -1,4 +1,5 @@
-let request = require('request')
+let request = require('request'),
+    CONF = require('./conf')
 
 // Handle a message
 function processMessage(event) {
