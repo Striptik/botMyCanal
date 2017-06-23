@@ -26,26 +26,26 @@ function processMessage(event) {
                 case "download":
 
                 case "reco":
-                    sendMessage(senderId, {text: "[LILIANE] : " + msg + "les recommandations personnalisées"});
+                    sendMessageText(senderId, {text: "[LILIANE] : " + msg + "les recommandations personnalisées"});
                     break;
                 case "whislist":
-                    sendMessage(senderId, {text: "[LILIANE] : " + msg + " la whishlist"});
+                    sendMessageText(senderId, {text: "[LILIANE] : " + msg + " la whishlist"});
                     break;
                 case "profil":
-                    sendMessage(senderId, {text: "[LILIANE] : " + msg + " les profils"});
+                    sendMessageText(senderId, {text: "[LILIANE] : " + msg + " les profils"});
                     break;
                 case "playlist":
-                    sendMessage(senderId, {text: "[CATHERINE] : " + msg + "les playlists"});
+                    sendMessageText(senderId, {text: "[CATHERINE] : " + msg + "les playlists"});
                     break;
                 case "alerte programme":
-                    sendMessage(senderId, {text: "[CATHERINE] : " + msg + "les alertes programmes"});
+                    sendMessageText(senderId, {text: "[CATHERINE] : " + msg + "les alertes programmes"});
                     break;
                 default:
-                    sendMessage(senderId, {text: "[CATHERINE] : Désolé, on s'est posée la question, on ne comprend pas ... une autre formulation peut être ?"});
+                    sendMessageText(senderId, {text: "[CATHERINE] : Désolé, on s'est posée la question, on ne comprend pas ... une autre formulation peut être ?"});
                     break;
             }
         } else if (message.attachments) {
-            sendMessage(senderId, {text: "Désolé, on s'est posé la question, on ne comprend pas ..."});
+            sendMessageText(senderId, {text: "Désolé, on s'est posé la question, on ne comprend pas ..."});
         }
     }
 }
