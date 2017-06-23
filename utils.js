@@ -18,12 +18,15 @@ function sendMessageRequest(json, callback) {
         method: 'POST',
         json: json
     }, function (error, res, body) {
+        console.log('json request : ')
+        console.log(json)
+        console.log(body)
         if (error) {
             console.log('[SENDMSGREQ] - Error sending message request : ' + res.error)
             console.log(error)
             return callback(error)
         }
-        return callback(null, body)
+        callback(null, body)
     });
 }
 /**
