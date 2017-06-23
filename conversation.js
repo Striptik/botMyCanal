@@ -105,6 +105,7 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
+        console.log('no words')
         utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?')
         utils.sendMessageText(user, '[LILIANE] : Non plus. Vous pouvez essayer autre chose peut être ?')
         return
@@ -112,14 +113,17 @@ function parseConversation(user, formattedMsg) {
 
     // One word find
     if (score === 1 && find.length === 1) {
-        //check kind of word find
+        console.log('one word')
         if (find.type === 'tuto') {
+            console.log('tuto')
             askVideoTuto(user, find)
         }
         return
     }
 
     if (score > 1) {
+        //check kind of word find
+        console.log('some  words')
         moreThanOneMatch(user, find)
     }
     // If we receive a text message, check to see if it matches any special
@@ -179,6 +183,9 @@ function askVideoTuto(user, word) {
         }
     ]
     let question = randomCatherinLiliane() + word.question
+    console.log('ask : ')
+    console.log(question)
+    console.log(buttons)
     utils.sendTemplateButton(user, question, buttons)
 }
 
