@@ -6,8 +6,12 @@ let express = require('express'),
     utils = require('./utils')
 
 
-// FACEBOOK WEBHOOKS
-// Used for verification
+// FACEBOOK WEBHOOKS ROUTER
+
+/**
+ * Route used for verifications of the connection with fb
+ * (messenger api need)
+ */
 router.get('/webhook', function (req, res) {
     if (req.query['hub.verify_token'] === process.env.VERIFICATION_TOKEN) {
         console.log('Webhook OK !')
@@ -17,9 +21,9 @@ router.get('/webhook', function (req, res) {
         res.sendStatus(403)
     }
 })
-
-// Add greeting message
-// TODO: add Html Header
+/**
+ * Post a greeting message to the conversations start
+ */
 router.get('/addGreeting', function (req, response) {
     let greeting_message = 'Hello !',
         url = "https://graph.facebook.com/v2.6/me/messenger_profile?access_token=" + process.env.PAGE_ACCESS_TOKEN
@@ -38,9 +42,9 @@ router.get('/addGreeting', function (req, response) {
         return response.status(200).json({error: null, message: 'OK'})
     })
 })
-
-
-// All callbacks for Messenger will be POST-ed here
+/**
+ * Route to post all callbacks for Messenger
+ */
 router.post("/webhook", function (req, res) {
     // Page subscription
     if (req.body.object === "page") {

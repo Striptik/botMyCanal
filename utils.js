@@ -1,7 +1,11 @@
 let request = require('request'),
     CONF = require('./conf')
 
-// Handle a text message
+/**
+ * Handle normal messages with all the informations in the event var
+ * the messages could be text or attachements
+ * @param event
+ */
 function processMessage(event) {
     if (!event.message.is_echo) {
         let message = event.message;
@@ -45,13 +49,20 @@ function processMessage(event) {
         }
     }
 }
-
-// Handle a Postback  (greeting, build answer, list)
+/**
+ * Handle postback message with all the informations in the event var
+ * the postback message could be the greeting, template message return,
+ * buttons message return ... akk templated answers
+ * @param event
+ */
 function processPostback(event) {
     let senderId = event.sender.id,
         payload = event.postback.payload
 
-    // function to create
+    // function to create postback
+
+    // TODO: Make a switch witrh payload
+
     if (payload === CONF.payload_greeting) {
         // Get user's first name from the User Profile API
         // and include it in the greeting
@@ -72,12 +83,25 @@ function processPostback(event) {
                 greeting = '[LILIANE] : Bonjour ' + name + ' ! '
             }
             let message = greeting + 'Nous sommes Catherine et Liliane. En quoi pouvons nous vous être utile ?'
-            sendMessage(senderId, {text: message})
+            sendMessageText(senderId, {text: message})
         });
     }
+
+    // Other cases
+
 }
 
-//Send Message request
+/**
+ *  SENDER
+ */
+
+
+/**
+ * The message request maker. It receive the json and send to the
+ * facebook API.
+ * @param json
+ * @param callback
+ */
 function sendMessageRequest(json, callback) {
     request({
         url: CONF.messages_url,
@@ -93,23 +117,54 @@ function sendMessageRequest(json, callback) {
         return callback(null, body)
     });
 }
-
-// Send message to user
-function sendMessage(recipientId, message) {
+/**
+ * Send Content Message to the user with the recipientId
+ * The type could be image/video, the url is the image/video hosting url
+ * @param recipientId
+ * @param type
+ * @param url
+ */
+function sendMessageContent(recipientId, type, url) {
+    let json  = {
+        recipient: {id: recipientId},
+        message: {
+            attachment: {
+                type: type,
+                payload: {
+                    url: url
+                }
+            }
+        }
+    }
+    sendMessageRequest(json, function(err, res) {
+        if (err) {
+            console.log('Message Content not sent')
+        }
+        console.log('Message Content sent !' + res.message_id)
+    })
+}
+/**
+ * Send Text Message to the user with the recipientId
+ * The message sent is the variable message
+ * @param recipientId
+ * @param message
+ */
+function sendMessageText(recipientId, message) {
     let json = {
         recipient: {id: recipientId},
         message: message
     }
     sendMessageRequest(json, function(err, res) {
         if (err) {
-            console.log('Message not sent');
+            console.log('Message Text not sent');
         }
         console.log('Message Text sent ! ' + res.message_id)
     });
 }
 
 module.exports = {
-    sendMessage,
+    sendMessageText,
+    sendMessageContent,
     sendMessageRequest,
     processMessage,
     processPostback
