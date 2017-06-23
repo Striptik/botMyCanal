@@ -105,7 +105,8 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
-        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', function() {
+        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', function(t) {
+            console.log(t)
             utils.sendMessageText(user, '[LILIANE] : Non plus. Vous pouvez essayer autre chose peut être ?')
         })
     }

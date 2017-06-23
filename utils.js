@@ -62,9 +62,9 @@ function sendMessageContent(recipientId, type, url) {
  * The message sent is the variable message
  * @param recipientId
  * @param message
- * @param next
+ * @param cb
  */
-function sendMessageText(recipientId, message, next) {
+function sendMessageText(recipientId, message, cb) {
     let json = {
         recipient: {id: recipientId},
         message: {text: message}
@@ -73,7 +73,8 @@ function sendMessageText(recipientId, message, next) {
         if (err) {
             console.log('Message Text not sent');
         }
-        return next()
+        console.log('coucou')
+        cb('text')
     });
 }
 /**
