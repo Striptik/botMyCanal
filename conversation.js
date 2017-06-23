@@ -23,7 +23,7 @@ function processMessage(event) {
             let formattedMsg = message.text.toLowerCase().trim();
             parseConversation(senderId, formattedMsg)
         } else if (message.attachments) {
-            utils.sendMessageText(senderId, ["[CATHERINE] : Ha désolé mon petit, mais nous ne gérons pas encore les pièces jointes"], 0);
+            utils.sendMessageText(senderId, ["[CATHERINE] : Ha désolé, mais nous ne gérons pas encore les pièces jointes"], 0);
         }
     }
 }
@@ -105,7 +105,7 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
-        utils.sendMessageText(user, ['[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', '[LILIANE] : Non plus. Allez essayez quelque chose d\'autre ?'], 0)
+        utils.sendMessageText(user, ['[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ? \n[LILIANE] : Non plus. Allez essayez quelque chose d\'autre ?'], 0)
     }
 
     // One word find
