@@ -72,7 +72,7 @@ function parseTemplateAnswer(user, payload) {
         if (_.includes(key, payload)) {
             if (answers[key].type === 'message') {
                 console.log('POSTBACK FIND : ')
-                    console.log(answers[key])
+                console.log(answers[key])
                 let ans = randomCatherinLiliane() + answers[key].answer
                 utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
@@ -111,22 +111,38 @@ function parseConversation(user, formattedMsg) {
 
     // One word find
     if (score === 1 && find.length === 1) {
-        if (find[0].type === 'tuto') {
-            askVideoTuto(user, find[0])
-        }
-        if (find[0].type === 'answer') {
-            let ans = randomCatherinLiliane() + find[0].question
-            utils.sendMessageText(user, ans)
-        }
-        return
+        handleOneFind(user, find[0])
     }
 
+    // More words
     if (score > 1) {
-        //check kind of word find
-        console.log('some  words')
-        moreThanOneMatch(user, find)
+        let newFind = [], simpleAnswer = []
+        for (let i = 0; i < find.length; i++) {
+            if (find[i].type === 'tuto') {
+                newFind.push(find[i])
+            } else if (find[i].type === 'answer') {
+                simpleAnswer.push(find[i])
+            }
+        }
+        if (newFind.length > 1) {
+            moreThanOneMatch(user, newFind)
+        } else if (newFind.length === 1) {
+            handleOneFind(user, newFind[0])
+        } else if (simpleAnswer.length > 0) {
+            handleOneFind(user, simpleAnswer[0])
+        }
     }
 
+}
+
+function handleOneFind(user, find) {
+    if (find.type === 'tuto') {
+        askVideoTuto(user, find)
+    }
+    if (find.type === 'answer') {
+        let ans = randomCatherinLiliane() + find.question
+        utils.sendMessageText(user, ans)
+    }
 }
 
 function moreThanOneMatch(user, find) {
@@ -141,7 +157,7 @@ function moreThanOneMatch(user, find) {
         }
         buttons.push(tmp)
     }
-    let tmp = { type: 'postback', title: 'Rien de tout ça..', payload: CONF.TUT_NO}
+    let tmp = { type: 'postback', title: 'Rien de tout ça.', payload: CONF.TUT_NO}
     buttons.push(tmp)
     utils.sendTemplateButton(user, text_button, buttons)
 }
@@ -182,4 +198,5 @@ module.exports = {
     processPostback,
     randomCatherinLiliane,
     parseTemplateAnswer,
+    handleOneFind,
 }

@@ -4,15 +4,22 @@ let dictionary = {
         word: 'recommendations',
         type: 'tuto',
         question: 'Est-ce que vous désirez voir cette petite vidéo sur les recommendations mon petit ? ',
-        text_button: 'Tout sur les recommendations',
+        text_button: 'Tuto Recommendations',
         payload_details: 'RECO'
     },
     profil: {
         word: 'profil',
         type: 'tuto',
         question: 'Ha ! J\'aime cette vidéo ! Tu vas tout connaitre sur les profils toi !',
-        text_button: 'Petit tuto sur les profils',
+        text_button: 'Tuto Profils',
         payload_details: 'PROFIL'
+    },
+    revoir: {
+        word: 'revoir',
+        type: 'tuto',
+        question: 'Toujours en retard ! Bon, avec myCanal il est possible de revenir 8h avant :',
+        text_button: 'Tuto Replay (8h avant)',
+        payload_details: 'REVOIR'
     },
     bonjour: {
         type: 'answer',

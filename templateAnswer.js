@@ -13,9 +13,13 @@ let answers = {
         url: 'https://www.dnb.co.uk/content/dam/english/image-library/Modernization/other/UseCase-01.gif'
 
     },
+    TUTO_YES_REVOIR: {
+        type: 'image',
+        url: 'http://imgur.com/D0NV79l.gif'
+    },
     TUTO_NO: {
         type: 'message',
-        answer: 'Très bien, Très bien !c\'est compris ! Une autre question peut être ?'
+        answer: 'Très bien, Très bien ! C\'est compris ! Une autre question peut être ?'
     }
 }
 
