@@ -71,6 +71,7 @@ function parseTemplateAnswer(user, payload) {
     for (let key in answers) {
         if (_.includes(key, payload)) {
             if (answers[key].type === 'message') {
+                console.log('POSTBACK FIND : ' + answers[key])
                 let ans = randomCatherinLiliane() + answers[key].answer
                 utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {

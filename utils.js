@@ -63,6 +63,7 @@ function sendMessageText(recipientId, message) {
         recipient: {id: recipientId},
         message: message
     }
+    console.log('message : ' + json)
     sendMessageRequest(json, function(err, res) {
         if (err) {
             console.log('Message Text not sent');
