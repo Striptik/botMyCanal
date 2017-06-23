@@ -105,7 +105,7 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
-        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', () => {
+        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', function() {
             utils.sendMessageText(user, '[LILIANE] : Non plus. Vous pouvez essayer autre chose peut être ?')
         })
     }
@@ -127,30 +127,7 @@ function parseConversation(user, formattedMsg) {
         console.log('some  words')
         moreThanOneMatch(user, find)
     }
-    // If we receive a text message, check to see if it matches any special
-    // let msg = 'Je peux vous inviter à regarder la vidéo sur '
-    // switch (formattedMsg) {
-    //     case "download":
-    //
-    //     case "reco":
-    //         sendMessageContent(user, 'image', 'http://i.imgur.com/UJgSpcF.gif')
-    //         break;
-    //     case "whislist":
-    //         sendMessageText(user, {text: "[LILIANE] : " + msg + " la whishlist"});
-    //         break;
-    //     case "profil":
-    //         sendMessageText(user, {text: "[LILIANE] : " + msg + " les profils"});
-    //         break;
-    //     case "playlist":
-    //         sendMessageText(user, {text: "[CATHERINE] : " + msg + "les playlists"});
-    //         break;
-    //     case "alerte programme":
-    //         sendMessageText(user, {text: "[CATHERINE] : " + msg + "les alertes programmes"});
-    //         break;
-    //     default:
-    //         sendMessageText(user, {text: "[CATHERINE] : Désolé, on s'est posée la question, on ne comprend pas ... une autre formulation peut être ?"});
-    //         break;
-    // }
+
 }
 
 function moreThanOneMatch(user, find) {

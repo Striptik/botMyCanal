@@ -62,6 +62,7 @@ function sendMessageContent(recipientId, type, url) {
  * The message sent is the variable message
  * @param recipientId
  * @param message
+ * @param next
  */
 function sendMessageText(recipientId, message, next) {
     let json = {
@@ -72,7 +73,7 @@ function sendMessageText(recipientId, message, next) {
         if (err) {
             console.log('Message Text not sent');
         }
-        next()
+        return next()
     });
 }
 /**
