@@ -64,7 +64,7 @@ function sendMessageContent(recipientId, type, url) {
 function sendMessageText(recipientId, message) {
     let json = {
         recipient: {id: recipientId},
-        message: message
+        message: {text: message}
     }
     console.log('message : ')
         console.log(json)
