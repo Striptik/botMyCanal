@@ -63,18 +63,16 @@ function sendMessageContent(recipientId, type, url) {
  * @param recipientId
  * @param message
  */
-function sendMessageText(recipientId, message) {
+function sendMessageText(recipientId, message, next) {
     let json = {
         recipient: {id: recipientId},
         message: {text: message}
     }
-    console.log('message : ')
-        console.log(json)
     sendMessageRequest(json, function(err, res) {
         if (err) {
             console.log('Message Text not sent');
         }
-        console.log('Message Text sent ! ' + res.message_id)
+        next()
     });
 }
 /**

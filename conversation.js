@@ -105,16 +105,19 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
-        console.log('no words')
-        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?')
-        utils.sendMessageText(user, '[LILIANE] : Non plus. Vous pouvez essayer autre chose peut être ?')
-        return
+        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', () => {
+            utils.sendMessageText(user, '[LILIANE] : Non plus. Vous pouvez essayer autre chose peut être ?')
+        })
     }
 
     // One word find
     if (score === 1 && find.length === 1) {
         if (find[0].type === 'tuto') {
             askVideoTuto(user, find[0])
+        }
+        if (find[0].type === 'answer') {
+            let ans = randomCatherinLiliane() + find[0].question
+            utils.sendMessageText(user, ans)
         }
         return
     }
