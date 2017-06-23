@@ -3,7 +3,7 @@
 let express = require('express'),
     router = express.Router(),
     request = require('request'),
-    utils = require('./utils')
+    conversation = require('./conversation')
 
 
 // FACEBOOK WEBHOOKS ROUTER
@@ -54,9 +54,9 @@ router.post("/webhook", function (req, res) {
             // Iterate over each messaging event
             entry.messaging.forEach(function(event) {
                 if (event.postback) {
-                    utils.processPostback(event);
+                    conversation.processPostback(event);
                 } else if (event.message) {
-                    utils.processMessage(event);
+                    conversation.processMessage(event);
                 }
             });
         });

@@ -4,3 +4,5 @@ exports.verif_token = 'this_is_my_mycanal-chatbot-token'
 exports.payload_greeting = 'Hello !'
 exports.messages_url = 'https://graph.facebook.com/v2.6/me/messages'
 
+exports.TUT_YES = 'TUTO_YES_'
+exports.TUT_NO = 'TUTO_NO'
