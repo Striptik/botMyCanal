@@ -21,7 +21,7 @@ function sendMessageRequest(json, callback) {
         console.log('json request : ')
         console.log(json)
         console.log(body)
-        if (error) {
+        if (error || res.body.error) {
             console.log('[SENDMSGREQ] - Error sending message request : ' + res.error)
             console.log(error)
             return callback(error)
@@ -62,19 +62,22 @@ function sendMessageContent(recipientId, type, url) {
  * The message sent is the variable message
  * @param recipientId
  * @param message
- * @param cb
+ * @param i
  */
-function sendMessageText(recipientId, message) {
-    let json = {
-        recipient: {id: recipientId},
-        message: {text: message}
-    }
-    sendMessageRequest(json, function(err, res) {
-        if (err) {
-            console.log('Message Text not sent');
+function sendMessageText(recipientId, message, i) {
+    if (i < message.length) {
+        let json = {
+            recipient: {id: recipientId},
+            message: {text: message}
         }
-        console.log('coucou')
-    });
+        sendMessageRequest(json, function(err, res) {
+            if (err) {
+                console.log('Message Text not sent');
+            }
+            console.log('coucou')
+        });
+        sendMessageText(recipientId, message, i + 1)
+    }
 }
 /**
  * Send Template Button to the user (recipientId)

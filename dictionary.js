@@ -17,7 +17,7 @@ let dictionary = {
     revoir: {
         word: 'revoir',
         type: 'tuto',
-        question: 'Toujours en retard ! Bon, avec myCanal il est possible de revenir 8h avant :',
+        question: 'Toujours en retard ! Est-ce qu\'une s    :',
         text_button: 'Tuto Replay (8h avant)',
         payload_details: 'REVOIR'
     },

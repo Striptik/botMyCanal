@@ -23,7 +23,7 @@ function processMessage(event) {
             let formattedMsg = message.text.toLowerCase().trim();
             parseConversation(senderId, formattedMsg)
         } else if (message.attachments) {
-            utils.sendMessageText(senderId, {text: "[CATHERINE] : Ha désolé mon petit, mais nous ne gérons pas encore les pièces jointes"});
+            utils.sendMessageText(senderId, ["[CATHERINE] : Ha désolé mon petit, mais nous ne gérons pas encore les pièces jointes"], 0);
         }
     }
 }
@@ -74,7 +74,7 @@ function parseTemplateAnswer(user, payload) {
                 console.log('POSTBACK FIND : ')
                 console.log(answers[key])
                 let ans = randomCatherinLiliane() + answers[key].answer
-                utils.sendMessageText(user, ans)
+                utils.sendMessageText(user, [ans], 0)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
                 // little text after the video ??
@@ -105,8 +105,7 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
-        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?')
-        utils.sendMessageText(user, '[LILIANE] : Non plus. Vous pouvez essayer autre chose peut être ?')
+        utils.sendMessageText(user, ['[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ?', '[LILIANE] : Non plus. Allez essayez quelque chose d\'autre ?'], 0)
     }
 
     // One word find
@@ -116,9 +115,10 @@ function parseConversation(user, formattedMsg) {
 
     // More words
     if (score > 1) {
-        let newFind = [], simpleAnswer = []
+        let newFind = [], simpleAnswer = [], limit = 0
         for (let i = 0; i < find.length; i++) {
-            if (find[i].type === 'tuto') {
+            if (find[i].type === 'tuto' && limit < 3) {
+                limit++;
                 newFind.push(find[i])
             } else if (find[i].type === 'answer') {
                 simpleAnswer.push(find[i])
@@ -141,12 +141,12 @@ function handleOneFind(user, find) {
     }
     if (find.type === 'answer') {
         let ans = randomCatherinLiliane() + find.question
-        utils.sendMessageText(user, ans)
+        utils.sendMessageText(user, [ans], 0)
     }
 }
 
 function moreThanOneMatch(user, find) {
-    utils.sendMessageText(user, '[CATHERINE] : Ca va trop vite, trop de données mes petits !')
+    utils.sendMessageText(user, ['[CATHERINE] : Ca va trop vite, trop de données mes petits !'], 0)
     text_button = '[LILIANE] : T\'inquiète pas Catherine, je gère. Quel information vous ferait plaisir ?'
     let buttons = []
     for (let i = 0; i < find.length; i++) {
