@@ -26,7 +26,7 @@ function processMessage(event) {
                 case "download":
 
                 case "reco":
-                    sendMessageContent(senderId, 'image', 'https://giphy.com/gifs/2Vtp6YdJRkJVK');
+                    sendMessageContent(senderId, 'image', 'http://i.imgur.com/UJgSpcF.gif')
                     break;
                 case "whislist":
                     sendMessageText(senderId, {text: "[LILIANE] : " + msg + " la whishlist"});
