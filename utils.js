@@ -64,7 +64,7 @@ function sendMessageContent(recipientId, type, url) {
  * @param message
  * @param cb
  */
-function sendMessageText(recipientId, message, cb) {
+function sendMessageText(recipientId, message) {
     let json = {
         recipient: {id: recipientId},
         message: {text: message}
@@ -74,7 +74,6 @@ function sendMessageText(recipientId, message, cb) {
             console.log('Message Text not sent');
         }
         console.log('coucou')
-        cb('text')
     });
 }
 /**
