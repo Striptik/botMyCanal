@@ -26,7 +26,7 @@ function processMessage(event) {
                 case "download":
 
                 case "reco":
-                    sendMessageText(senderId, {text: "[LILIANE] : " + msg + "les recommandations personnalisées"});
+                    sendMessageContent(senderId, 'image', 'https://giphy.com/gifs/2Vtp6YdJRkJVK');
                     break;
                 case "whislist":
                     sendMessageText(senderId, {text: "[LILIANE] : " + msg + " la whishlist"});
@@ -161,6 +161,8 @@ function sendMessageText(recipientId, message) {
         console.log('Message Text sent ! ' + res.message_id)
     });
 }
+
+
 
 module.exports = {
     sendMessageText,
