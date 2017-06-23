@@ -68,7 +68,7 @@ function sendMessageText(recipientId, message, i) {
     if (i < message.length) {
         let json = {
             recipient: {id: recipientId},
-            message: {text: message}
+            message: {text: message[i]}
         }
         sendMessageRequest(json, function(err, res) {
             if (err) {
