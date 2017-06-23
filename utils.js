@@ -48,6 +48,8 @@ function sendMessageContent(recipientId, type, url) {
             }
         }
     }
+    console.log('content message : ')
+    console.log(json)
     sendMessageRequest(json, function(err, res) {
         if (err) {
             console.log('Message Content not sent')
