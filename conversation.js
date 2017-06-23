@@ -114,7 +114,7 @@ function parseConversation(user, formattedMsg) {
     // One word find
     if (score === 1 && find.length === 1) {
         console.log('one word')
-        if (find.type === 'tuto') {
+        if (find[0].type === 'tuto') {
             console.log('tuto')
             askVideoTuto(user, find)
         }
