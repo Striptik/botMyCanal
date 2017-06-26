@@ -76,6 +76,7 @@ function parseTemplateAnswer(user, payload) {
                 let ans = randomCatherinLiliane() + answers[key].answer
                 utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
+                utils.sendMessageText(user, answers[key].message)
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
                 // little text after the video ??
              }// else if (answer[key].type === 'web_url') {

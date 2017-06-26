@@ -45,6 +45,33 @@ let dictionary = {
         answer_no: 'Non je connais déjà les offres.',
         payload_details: 'OFFRES'
     },
+    inscrire: {
+        word: 'offre',
+        type: 'tuto',
+        questions: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
+        text_button: 'Les offres',
+        answer_yes: 'Oui je souhaite découvrir',
+        answer_no: 'Non je connais déjà les offres.',
+        payload_details: 'OFFRES'
+    },
+    'télécharg': {
+        word: 'telechargement',
+        type: 'tuto',
+        questions: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
+        text_button: 'Les offres',
+        answer_yes: 'Oui, j\'aimerai savoir',
+        answer_no: 'Non ça ira.',
+        payload_details: 'DOWNLOAD'
+    },
+    'telecharg': {
+        word: 'telechargement',
+        type: 'tuto',
+        questions: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
+        text_button: 'Les offres',
+        answer_yes: 'Oui, j\'aimerai savoir',
+        answer_no: 'Non ça ira.',
+        payload_details: 'DOWNLOAD'
+    },
     bonjour: {
         type: 'answer',
         question: 'Bonjour mon petit ! Comment allez-vous ?'
@@ -68,7 +95,11 @@ let dictionary = {
     merci: {
         type: 'answer',
         question: 'Y a pas de quoi enfin ! '
-    }
+    },
+    'a va': {
+        type: 'answer',
+        question: 'Je suis content pour vous'
+    },
 }
 
 
