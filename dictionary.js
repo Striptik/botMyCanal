@@ -50,7 +50,7 @@ let dictionary = {
         type: 'tuto',
         question: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
         text_button: 'Les offres',
-        answer_yes: 'Oui je souhaite découvrir',
+        answer_yes: 'Voyons-voir',
         answer_no: 'Je les connais',
         payload_details: 'OFFRES'
     },
