@@ -54,7 +54,7 @@ function parseTemplateAnswer(user, payload) {
                 //TUTORIALS
                 utils.sendMessageText(user, answers[key].message)
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
-             } else if (answer[key].type === 'web_url') {
+             } else if (answers[key].type === 'web_url') {
                 // URL LINK
                 utils.sendMessageUrl(user, answers[key])
             }
