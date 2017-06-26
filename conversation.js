@@ -78,7 +78,7 @@ function parseTemplateAnswer(user, payload) {
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
                 // little text after the video ??
-            // } else if (answer[key].type === 'web_url') {
+             }// else if (answer[key].type === 'web_url') {
             //     utils.send
             // }
             // answer with other postback answer
