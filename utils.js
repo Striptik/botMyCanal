@@ -116,7 +116,7 @@ function sendMessageUrl(user, template) {
         }
     ]
     let json = {
-            recipent: {id: user},
+            recipient: {id: user},
             message: {
                 attachment: {
                     type: 'template',
