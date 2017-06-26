@@ -46,19 +46,18 @@ function parseTemplateAnswer(user, payload) {
         if (_.includes(key, payload)) {
             if (answers[key].type === 'message') {
                 // MESSAGE
-                console.log('POSTBACK FIND : ')
-                console.log(answers[key])
                 let ans = utils.randomCatherinLiliane() + answers[key].answer
                 utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
                 //TUTORIALS
                 let text = utils.randomCatherinLiliane() + answers[key].message
-                utils.sendMessageText(user, answers[key].message)
+                utils.sendMessageText(user, text)
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
              } else if (answers[key].type === 'web_url') {
                 // URL LINK
                 utils.sendMessageUrl(user, answers[key])
             } else if (answers[key].type === 'list') {
+                // LIST TUTO
                 utils.sendListTuto(user)
             }
             return
@@ -124,7 +123,7 @@ function handleOneFind(user, find) {
         utils.sendMessageText(user, ans)
     }
     if (find.type === 'list') {
-        let ans = utils.randomCatherinLiliane() + 'voici la liste des tutoriels disponibles.'
+        let ans = utils.randomCatherinLiliane() + 'Voici la liste de nos fabuleux tutoriels : '
         utils.sendMessageText(user, ans)
         utils.sendListTuto(user)
     }

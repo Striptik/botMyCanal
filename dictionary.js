@@ -3,7 +3,7 @@ let dictionary = {
     recom: {
         word: 'recommendations',
         type: 'tuto',
-        question: 'Ouuuulala la recommandation, ce sont des experts canal qui gèrent tout ça! c’est du sérieux !! Et si je vous montrai la vidéo ?',
+        question: 'Ouuuulala la recommandation, ce sont des experts canal qui gèrent tout ça! c’est du sérieux !! Et si je vous montrais la vidéo ?',
         text_button: 'Tuto Recommendations',
         answer_yes: 'Avec plaisir !',
         answer_no: 'Non merci.',
@@ -30,7 +30,7 @@ let dictionary = {
     revoir: {
         word: 'revoir',
         type: 'tuto',
-        question: 'Toujours en retard ! C’est fou les gens ne sont jamais à l’heure.\nSur my canal on peux revoir son programme jusqu’a 8h après le direct. C’est bien ça que vous souhaitez ?',
+        question: 'Toujours en retard ! C’est fou les gens ne sont jamais à l’heure.\nSur myCanal on peux revoir son programme jusqu’a 8h après le direct. C’est bien ça que vous souhaitez ?',
         text_button: 'Tuto Replay (8h avant)',
         answer_yes: 'Oui tout à fait !',
         answer_no: 'Non merci.',
@@ -108,10 +108,13 @@ let dictionary = {
     },
     'a va': {
         type: 'answer',
-        question: 'Je suis content pour vous'
+        question: 'Je suis contente pour vous'
     },
     // Liste Tuto
     tutoriels: {
+        type: 'list'
+    },
+    fonctionn: {
         type: 'list'
     }
 }

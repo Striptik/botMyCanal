@@ -187,7 +187,7 @@ function sendListTuto(user) {
                                 {
                                     "title": "Voir",
                                     "type": "postback",
-                                    "payload": "TUTO_YES_RECO"
+                                    "payload": "TUTO_YES_DOWNLOAD"
 
                                 }
                             ]
