@@ -75,7 +75,7 @@ let dictionary = {
     site: {
         word: 'SITE',
         type: 'tuto',
-        question: 'La seule chose qui vous intéresse est le site ?',
+        question: 'LE SITE, LE SITE ! La seule chose qui vous intéresse est le site ?',
         text_button: 'Le site',
         answer_yes: 'Tout à fait',
         answer_no: 'Non c\'est bon',
