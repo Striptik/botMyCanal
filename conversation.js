@@ -180,12 +180,12 @@ function askVideoTuto(user, word) {
     let buttons = [
         {
             type: 'postback',
-            title: 'Oui c\'est bien ça',
+            title: word.answer_yes,
             payload: CONF.TUT_YES + word.payload_details
         },
         {
             type: 'postback',
-            title: 'Non du tout',
+            title: word.answer_no,
             payload: CONF.TUT_NO
         }
     ]
