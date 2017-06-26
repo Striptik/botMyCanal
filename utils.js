@@ -106,9 +106,40 @@ function sendTemplateButton(recipientId, text_button, buttons) {
     })
 }
 
+function sendMessageUrl(user, template) {
+    let buttons = [
+        {
+            type: 'web_url',
+            url: template.url,
+            title: template.title,
+            webview_height_ratio: "compact"
+        }
+    ]
+    let json = {
+            recipent: {id: user},
+            message: {
+                attachment: {
+                    type: 'template',
+                    payload: {
+                        template_type: 'button',
+                        text: template.message,
+                        buttons: buttons
+                    }
+                }
+            }
+        }
+    sendMessageRequest(json, function(err, res) {
+        if (err) {
+            console.log('Template url message not sent')
+        }
+        console.log('Template Message sent !' + res.message_id)
+    })
+}
+
 module.exports = {
     sendMessageText,
     sendMessageContent,
     sendTemplateButton,
-    sendMessageRequest
+    sendMessageRequest,
+    sendMessageUrl,
 }

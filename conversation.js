@@ -38,56 +38,31 @@ function processPostback(event) {
         payload = event.postback.payload
 
     // function to handle postback
-
     parseTemplateAnswer(senderId, payload)
-
-    // if (payload === CONF.payload_greeting) {
-    //     // Get user's first name from the User Profile API
-    //     // and include it in the greeting
-    //     request({
-    //         url: 'https://graph.facebook.com/v2.6/' + senderId,
-    //         qs: {
-    //             access_token: process.env.PAGE_ACCESS_TOKEN,
-    //             fields: 'first_name'
-    //         },
-    //         method: 'GET'
-    //     }, function(error, response, body) {
-    //         let greeting = ''
-    //         if (error) {
-    //             console.log('[PRCPOSTBACK] - Error on processed postback : ' +  error)
-    //         } else {
-    //             let bodyObj = JSON.parse(body)
-    //             let name = bodyObj.first_name
-    //             greeting = '[LILIANE] : Bonjour ' + name + ' ! '
-    //         }
-    //         let message = greeting + 'Nous sommes Catherine et Liliane. En quoi pouvons nous vous être utile ?'
-    //         utils.sendMessageText(senderId, {text: message})
-    //     });
-    // }
-
 }
 
 function parseTemplateAnswer(user, payload) {
     for (let key in answers) {
         if (_.includes(key, payload)) {
             if (answers[key].type === 'message') {
+                // MESSAGE
                 console.log('POSTBACK FIND : ')
                 console.log(answers[key])
                 let ans = randomCatherinLiliane() + answers[key].answer
                 utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
+                //TUTORIALS
                 utils.sendMessageText(user, answers[key].message)
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
-                // little text after the video ??
-             }// else if (answer[key].type === 'web_url') {
-            //     utils.send
-            // }
+             } else if (answer[key].type === 'web_url') {
+                // URL LINK
+                utils.sendMessageUrl(user, answers[key])
+            }
             // answer with other postback answer
             return
         }
     }
 }
-
 /**
  * This function permits to parse the conversation if a message text is send
  * @param user
@@ -165,18 +140,6 @@ function moreThanOneMatch(user, find) {
     utils.sendTemplateButton(user, text_button, buttons)
 }
 
-function createButtonWeb(user, title, url) {
-     let buttons = [
-         {
-             type: 'web_url',
-             url: url,
-             title: title,
-             webview_height_ratio: "compact"
-         }
-     ]
-
-}
-
 function askVideoTuto(user, word) {
     let buttons = [
         {
@@ -191,9 +154,6 @@ function askVideoTuto(user, word) {
         }
     ]
     let question = randomCatherinLiliane() + word.question
-    console.log('ask : ')
-    console.log(question)
-    console.log(buttons)
     utils.sendTemplateButton(user, question, buttons)
 }
 

@@ -15,7 +15,7 @@ let dictionary = {
         question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gerer votre profil ?',
         text_button: 'Tuto Profils',
         answer_yes: 'Oui ça m\'intéresse !',
-        answer_no: 'Non je sais déjà.',
+        answer_no: 'Non ça ira les filles',
         payload_details: 'PROFIL'
     },
     avatar: {
@@ -24,7 +24,7 @@ let dictionary = {
         question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gerer votre profil ?',
         text_button: 'Tuto Profils',
         answer_yes: 'Oui ça m\'intéresse !',
-        answer_no: 'Non je sais déjà le paramétrer.',
+        answer_no: 'Non ça ira les filles',
         payload_details: 'PROFIL'
     },
     revoir: {
@@ -33,42 +33,42 @@ let dictionary = {
         question: 'Toujours en retard ! C’est fou les gens ne sont jamais à l’heure.\nSur my canal on peux revoir son programme jusqu’a 8h après le direct. C’est bien ça que vous souhaitez ?',
         text_button: 'Tuto Replay (8h avant)',
         answer_yes: 'Oui tout à fait !',
-        answer_no: 'Non je m\'en sers déjà, merci.',
+        answer_no: 'Non merci.',
         payload_details: 'REVOIR'
     },
     offre: {
         word: 'offre',
         type: 'tuto',
-        questions: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
+        question: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
         text_button: 'Les offres',
-        answer_yes: 'Oui je souhaite découvrir',
-        answer_no: 'Non je connais déjà les offres.',
+        answer_yes: 'Voyons-voir',
+        answer_no: 'Je les connais',
         payload_details: 'OFFRES'
     },
     inscrire: {
         word: 'offre',
         type: 'tuto',
-        questions: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
+        question: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
         text_button: 'Les offres',
         answer_yes: 'Oui je souhaite découvrir',
-        answer_no: 'Non je connais déjà les offres.',
+        answer_no: 'Je les connais',
         payload_details: 'OFFRES'
     },
     'télécharg': {
         word: 'telechargement',
         type: 'tuto',
-        questions: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
+        question: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
         text_button: 'Les offres',
-        answer_yes: 'Oui, j\'aimerai savoir',
+        answer_yes: 'Oui j\'aimerai savoir.',
         answer_no: 'Non ça ira.',
         payload_details: 'DOWNLOAD'
     },
     'telecharg': {
         word: 'telechargement',
         type: 'tuto',
-        questions: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
+        question: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
         text_button: 'Les offres',
-        answer_yes: 'Oui, j\'aimerai savoir',
+        answer_yes: 'Oui, j\'aimerai savoir.',
         answer_no: 'Non ça ira.',
         payload_details: 'DOWNLOAD'
     },
