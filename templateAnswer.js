@@ -13,7 +13,7 @@ let answers = {
         type: 'web_url',
         url: 'https://www.mycanal.fr/',
         title: 'Le Site MyCanal',
-        message: 'Allez ! Je vous emmène sur le site'
+        message: 'Bon très bien ! Je vous y emmène alors'
     },
     TUTO_YES_RECO: {
         type: 'image',

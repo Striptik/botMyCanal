@@ -48,10 +48,11 @@ function parseTemplateAnswer(user, payload) {
                 // MESSAGE
                 console.log('POSTBACK FIND : ')
                 console.log(answers[key])
-                let ans = randomCatherinLiliane() + answers[key].answer
+                let ans = utils.randomCatherinLiliane() + answers[key].answer
                 utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
                 //TUTORIALS
+                let text = utils.randomCatherinLiliane() + answers[key].message
                 utils.sendMessageText(user, answers[key].message)
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
              } else if (answers[key].type === 'web_url') {
@@ -119,11 +120,11 @@ function handleOneFind(user, find) {
         askVideoTuto(user, find)
     }
     if (find.type === 'answer') {
-        let ans = randomCatherinLiliane() + find.question
+        let ans = utils.randomCatherinLiliane() + find.question
         utils.sendMessageText(user, ans)
     }
     if (find.type === 'list') {
-        let ans = randomCatherinLiliane() + 'voici la liste des tutoriels disponibles.'
+        let ans = utils.randomCatherinLiliane() + 'voici la liste des tutoriels disponibles.'
         utils.sendMessageText(user, ans)
         utils.sendListTuto(user)
     }
@@ -159,17 +160,8 @@ function askVideoTuto(user, word) {
             payload: CONF.TUT_NO
         }
     ]
-    let question = randomCatherinLiliane() + word.question
+    let question = utils.randomCatherinLiliane() + word.question
     utils.sendTemplateButton(user, question, buttons)
-}
-
-function randomCatherinLiliane() {
-    i = Math.random() * (1000)
-    if (i % 2 === 1) {
-        return ('[CATHERINE] : ')
-    } else {
-        return ('[LILIANE] : ')
-    }
 }
 
 module.exports = {
@@ -177,7 +169,6 @@ module.exports = {
     askVideoTuto,
     processMessage,
     processPostback,
-    randomCatherinLiliane,
     parseTemplateAnswer,
     handleOneFind,
 }

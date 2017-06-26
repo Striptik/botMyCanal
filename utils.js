@@ -107,6 +107,7 @@ function sendTemplateButton(recipientId, text_button, buttons) {
 }
 
 function sendMessageUrl(user, template) {
+    let text = randomCatherinLiliane() + template.message
     let buttons = [
         {
             type: 'web_url',
@@ -122,7 +123,7 @@ function sendMessageUrl(user, template) {
                     type: 'template',
                     payload: {
                         template_type: 'button',
-                        text: template.message,
+                        text: text,
                         buttons: buttons
                     }
                 }
@@ -204,6 +205,15 @@ function sendListTuto(user) {
     })
 }
 
+function randomCatherinLiliane() {
+    i = Math.random() * (1000)
+    if (i % 2 === 1) {
+        return ('[CATHERINE] : ')
+    } else {
+        return ('[LILIANE] : ')
+    }
+}
+
 module.exports = {
     sendMessageText,
     sendMessageContent,
@@ -211,4 +221,5 @@ module.exports = {
     sendMessageRequest,
     sendMessageUrl,
     sendListTuto,
+    randomCatherinLiliane,
 }
