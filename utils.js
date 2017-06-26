@@ -136,10 +136,79 @@ function sendMessageUrl(user, template) {
     })
 }
 
+function sendListTuto(user) {
+    let json = {
+        recipient: {id: user},
+        message: {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "list",
+                    top_element_style: "compact",
+                    elements: [
+                        {
+                            title: "Revoir 8h avant le direct",
+                            subtitle: "Cette fonctionnalité permet de revoir 8h avant le direct",
+                            buttons: [
+                                {
+                                    title: "Voir",
+                                    type: "postback",
+                                    payload: "TUTO_YES_REVOIR"
+                                }
+                            ]
+                        },
+                        {
+                            title: "Configurer son profil",
+                            subtitle: "Tout savoir sur comment configurer son profil",
+                            buttons: [
+                                {
+                                    title: "Voir",
+                                    type: "postback",
+                                    payload: "TUTO_YES_PROFIL"
+                                }
+                            ]
+                        },
+                        {
+                            title: "Les recommendations",
+                            subtitle: "Apprendre le fonctionnement des des recommendations",
+                            buttons: [
+                                {
+                                    "title": "Voir",
+                                    "type": "postback",
+                                    "payload": "TUTO_YES_RECO"
+                                }
+                            ]
+                        },
+                        {
+                            title: "Visionnage hors-ligne",
+                            subtitle: "Cette fonctionnalité permet de télécherger et visionner du contenu sans être connecté",
+                            buttons: [
+                                {
+                                    "title": "Voir",
+                                    "type": "postback",
+                                    "payload": "TUTO_YES_RECO"
+
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    sendMessageRequest(json, function(err, res) {
+        if (err) {
+            console.log('Template List message not sent')
+        }
+        console.log('Template list sent !' + res.message_id)
+    })
+}
+
 module.exports = {
     sendMessageText,
     sendMessageContent,
     sendTemplateButton,
     sendMessageRequest,
     sendMessageUrl,
+    sendListTuto,
 }

@@ -15,7 +15,7 @@ let dictionary = {
         question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gerer votre profil ?',
         text_button: 'Tuto Profils',
         answer_yes: 'Oui ça m\'intéresse !',
-        answer_no: 'Non ça ira les filles',
+        answer_no: 'Ca ira les filles',
         payload_details: 'PROFIL'
     },
     avatar: {
@@ -24,7 +24,7 @@ let dictionary = {
         question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gerer votre profil ?',
         text_button: 'Tuto Profils',
         answer_yes: 'Oui ça m\'intéresse !',
-        answer_no: 'Non ça ira les filles',
+        answer_no: 'Ca ira les filles',
         payload_details: 'PROFIL'
     },
     revoir: {
@@ -59,7 +59,7 @@ let dictionary = {
         type: 'tuto',
         question: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
         text_button: 'Les offres',
-        answer_yes: 'Oui j\'aimerai savoir.',
+        answer_yes: 'Allons-y !',
         answer_no: 'Non ça ira.',
         payload_details: 'DOWNLOAD'
     },
@@ -68,10 +68,11 @@ let dictionary = {
         type: 'tuto',
         question: 'Ahhh le téléchargement, c’est fou de regarder ce qu’on veut où on veut, quand on veut.\nVoulez-vous savoir comment télécharger vos programmes ?',
         text_button: 'Les offres',
-        answer_yes: 'Oui, j\'aimerai savoir.',
+        answer_yes: 'Allons-y',
         answer_no: 'Non ça ira.',
         payload_details: 'DOWNLOAD'
     },
+    // Message basiques
     bonjour: {
         type: 'answer',
         question: 'Bonjour mon petit ! Comment allez-vous ?'
@@ -100,6 +101,10 @@ let dictionary = {
         type: 'answer',
         question: 'Je suis content pour vous'
     },
+    // Liste Tuto
+    tutoriels: {
+        type: 'list'
+    }
 }
 
 

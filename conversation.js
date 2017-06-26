@@ -121,6 +121,10 @@ function handleOneFind(user, find) {
         let ans = randomCatherinLiliane() + find.question
         utils.sendMessageText(user, ans)
     }
+    if (find.type === 'list') {
+        let ans = randomCatherinLiliane() + 'voici la liste des tutoriels disponibles.'
+        utils.sendListTuto(user)
+    }
 }
 
 function moreThanOneMatch(user, find) {
