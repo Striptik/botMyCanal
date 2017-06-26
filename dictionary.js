@@ -3,7 +3,7 @@ let dictionary = {
     recom: {
         word: 'recommendations',
         type: 'tuto',
-        question: 'Ouuuulala la recommandation, ce sont des experts canal qui gèrent tout ça! c’est du sérieux !! Et si je vous montrai la vidéo ?
+        question: 'Ouuuulala la recommandation, ce sont des experts canal qui gèrent tout ça! c’est du sérieux !! Et si je vous montrai la vidéo ?',
         text_button: 'Tuto Recommendations',
         payload_details: 'RECO'
     },
