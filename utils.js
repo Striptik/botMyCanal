@@ -67,8 +67,9 @@ function sendMessageContent(recipientId, type, url) {
 function sendMessageText(recipientId, message) {
     let json = {
         recipient: {id: recipientId},
-        message: {text: message[i]}
+        message: {text: message}
     }
+
     sendMessageRequest(json, function(err, res) {
         if (err) {
             console.log('Message Text not sent');
