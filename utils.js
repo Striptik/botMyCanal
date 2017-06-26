@@ -64,20 +64,17 @@ function sendMessageContent(recipientId, type, url) {
  * @param message
  * @param i
  */
-function sendMessageText(recipientId, message, i) {
-    if (i < message.length) {
-        let json = {
-            recipient: {id: recipientId},
-            message: {text: message[i]}
-        }
-        sendMessageRequest(json, function(err, res) {
-            if (err) {
-                console.log('Message Text not sent');
-            }
-            console.log('coucou')
-        });
-        sendMessageText(recipientId, message, i + 1)
+function sendMessageText(recipientId, message) {
+    let json = {
+        recipient: {id: recipientId},
+        message: {text: message[i]}
     }
+    sendMessageRequest(json, function(err, res) {
+        if (err) {
+            console.log('Message Text not sent');
+        }
+        console.log('coucou')
+    });
 }
 /**
  * Send Template Button to the user (recipientId)

@@ -1,7 +1,7 @@
 let utils = require('./utils'),
     CONF = require('./conf'),
     dico = require('./dictionary'),
-    answers = require('./templateAnswer')
+    answers = require('./templateAnswer'),
     request = require('request'),
     _ = require('lodash')
 
@@ -23,7 +23,7 @@ function processMessage(event) {
             let formattedMsg = message.text.toLowerCase().trim();
             parseConversation(senderId, formattedMsg)
         } else if (message.attachments) {
-            utils.sendMessageText(senderId, ["[CATHERINE] : Ha désolé, mais nous ne gérons pas encore les pièces jointes"], 0);
+            utils.sendMessageText(senderId, "[CATHERINE] : Ha désolé, mais nous ne gérons pas encore les pièces jointes");
         }
     }
 }
@@ -74,11 +74,13 @@ function parseTemplateAnswer(user, payload) {
                 console.log('POSTBACK FIND : ')
                 console.log(answers[key])
                 let ans = randomCatherinLiliane() + answers[key].answer
-                utils.sendMessageText(user, [ans], 0)
+                utils.sendMessageText(user, ans)
             } else if (answers[key].type === 'image' || answers[key].type === 'video') {
                 utils.sendMessageContent(user, answers[key].type, answers[key].url)
                 // little text after the video ??
-            }
+            // } else if (answer[key].type === 'web_url') {
+            //     utils.send
+            // }
             // answer with other postback answer
             return
         }
@@ -105,7 +107,7 @@ function parseConversation(user, formattedMsg) {
 
     // No words find
     if (score === 0 && find.length === 0) {
-        utils.sendMessageText(user, ['[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ? \n[LILIANE] : Non plus. Allez essayez quelque chose d\'autre ?'], 0)
+        utils.sendMessageText(user, '[CATHERINE] : Rien compris de ce que vous dites ! Et toi Lili ? \n[LILIANE] : Non plus. Allez essayez quelque chose d\'autre ?')
     }
 
     // One word find
@@ -141,12 +143,12 @@ function handleOneFind(user, find) {
     }
     if (find.type === 'answer') {
         let ans = randomCatherinLiliane() + find.question
-        utils.sendMessageText(user, [ans], 0)
+        utils.sendMessageText(user, ans)
     }
 }
 
 function moreThanOneMatch(user, find) {
-    utils.sendMessageText(user, ['[CATHERINE] : Ca va trop vite, trop de données mes petits !'], 0)
+    utils.sendMessageText(user, '[CATHERINE] : Ca va trop vite, trop de données mes petits !')
     text_button = '[LILIANE] : T\'inquiète pas Catherine, je gère. Quel information vous ferait plaisir ?'
     let buttons = []
     for (let i = 0; i < find.length; i++) {
@@ -160,6 +162,18 @@ function moreThanOneMatch(user, find) {
     let tmp = { type: 'postback', title: 'Rien de tout ça.', payload: CONF.TUT_NO}
     buttons.push(tmp)
     utils.sendTemplateButton(user, text_button, buttons)
+}
+
+function createButtonWeb(user, title, url) {
+     let buttons = [
+         {
+             type: 'web_url',
+             url: url,
+             title: title,
+             webview_height_ratio: "compact"
+         }
+     ]
+
 }
 
 function askVideoTuto(user, word) {
