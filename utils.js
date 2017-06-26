@@ -170,7 +170,7 @@ function sendListTuto(user) {
                         },
                         {
                             title: "Les recommendations",
-                            subtitle: "Apprendre le fonctionnement des des recommendations",
+                            subtitle: "Apprendre le fonctionnement des recommendations",
                             buttons: [
                                 {
                                     "title": "Voir",

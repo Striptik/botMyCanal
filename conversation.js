@@ -57,8 +57,9 @@ function parseTemplateAnswer(user, payload) {
              } else if (answers[key].type === 'web_url') {
                 // URL LINK
                 utils.sendMessageUrl(user, answers[key])
+            } else if (answers[key].type === 'list') {
+                utils.sendListTuto(user)
             }
-            // answer with other postback answer
             return
         }
     }
@@ -123,6 +124,7 @@ function handleOneFind(user, find) {
     }
     if (find.type === 'list') {
         let ans = randomCatherinLiliane() + 'voici la liste des tutoriels disponibles.'
+        utils.sendMessageText(user, ans)
         utils.sendListTuto(user)
     }
 }

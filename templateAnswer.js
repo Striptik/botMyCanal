@@ -33,7 +33,9 @@ let answers = {
         type: 'message',
         answer: 'Très bien, Très bien ! C\'est compris ! Une autre question peut être ?'
     },
-
+    LIST_TUTO: {
+        type: 'list'
+    }
 }
 
 module.exports = answers
