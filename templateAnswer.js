@@ -9,6 +9,12 @@ let answers = {
         title: 'Les Offres Canal',
         message: 'Chic, chic, regardez cette page. Je pense que vous allez trouver votre bonheur !'
     },
+    TUTO_YES_SITE: {
+        type: 'web_url',
+        url: 'https://www.mycanal.fr/',
+        title: 'Le Site MyCanal',
+        message: 'Allez ! Je vous emmène sur le site'
+    },
     TUTO_YES_RECO: {
         type: 'image',
         url: 'https://68.media.tumblr.com/e1725359d332b634de2337e90e8c3eb9/tumblr_nz5gxfBzqD1r83d7lo1_500.gif',

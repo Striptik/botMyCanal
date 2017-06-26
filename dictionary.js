@@ -1,5 +1,5 @@
 let dictionary = {
-    // TUTOS
+    // TUTOS & URL_WEB
     recom: {
         word: 'recommendations',
         type: 'tuto',
@@ -71,6 +71,15 @@ let dictionary = {
         answer_yes: 'Allons-y',
         answer_no: 'Non ça ira.',
         payload_details: 'DOWNLOAD'
+    },
+    site: {
+        word: 'SITE',
+        type: 'tuto',
+        question: 'Tout ce qui vous intéresse est le site ?',
+        text_button: 'Le site',
+        answer_yes: 'Tout à fait',
+        answer_no: 'Non c\'est bon',
+        payload_details: 'SITE'
     },
     // Message basiques
     bonjour: {
