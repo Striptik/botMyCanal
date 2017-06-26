@@ -1,7 +1,7 @@
 let answers = {
     'Hello !': {
         type: 'message',
-        answer: 'Bonjour Bonjour ! Nous sommes Catherine et Liliane.\n\nNous avons pas mal de choses à faire, mais nous avons bien 5 minutes à vous accorder. En quoi pouvons nous vous être utile ?'
+        answer: 'Bonjour Bonjour ! Nous sommes Catherine et Liliane.\n\nNous avons pas mal de choses à faire, mais nous avons bien 5 minutes à vous accorder.\n\nEn quoi pouvons nous vous être utile ?'
     },
     TUTO_YES_OFFRES: {
         type: 'web_url',
@@ -17,13 +17,13 @@ let answers = {
     },
     TUTO_YES_RECO: {
         type: 'image',
-        url: 'http://imgur.com/a/sC4vo.gif',
+        url: 'https://media.giphy.com/media/3oKIPtCWnnTB4sk42k/source.gif',
         message: 'Je vais regarder avec vous : '
     },
     TUTO_YES_PROFIL: {
         type: 'image',
         message: 'C\'est parti : ',
-        url: 'http://imgur.com/a/yfCh5.gif'
+        url: 'https://media.giphy.com/media/l4FGs1Olo2yKRB9wQ/source.gif'
     },
     TUTO_YES_REVOIR: {
         type: 'image',
@@ -33,7 +33,7 @@ let answers = {
     TUTO_YES_DOWNLOAD: {
         type: 'image',
         message: 'Pour télécharger c\'est pas compliqué mon choux : ',
-        url: 'http://imgur.com/a/fbKzF.gif'
+        url: 'https://gifyu.com/images/tutotelechargement.gif'
     },
     TUTO_NO: {
         type: 'message',
