@@ -1,7 +1,7 @@
 let answers = {
     'Hello !': {
         type: 'message',
-        answer: 'Bonjour Bonjour ! Nous sommes Catherine et Liliane.\n\nNous avons pas mal de choses à faire, mais nous avons bien 5 minutes à vous accorder.\n\nEn quoi pouvons nous vous être utile ?'
+        answer: 'Bonjour Bonjour ! Nous sommes Catherine et Liliane.\n\nNous avons pas mal de choses à faire, mais nous avons bien 5 minutes à vous accorder.\n\nEn quoi pouvons-nous vous être utiles ?'
     },
     TUTO_YES_OFFRES: {
         type: 'web_url',

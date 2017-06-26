@@ -170,8 +170,8 @@ function sendListTuto(user) {
                             ]
                         },
                         {
-                            title: "Les recommendations",
-                            subtitle: "Apprendre le fonctionnement des recommendations",
+                            title: "Les recommandations",
+                            subtitle: "Apprendre le fonctionnement des recommandations",
                             buttons: [
                                 {
                                     "title": "Voir",
@@ -182,7 +182,7 @@ function sendListTuto(user) {
                         },
                         {
                             title: "Visionnage hors-ligne",
-                            subtitle: "Cette fonctionnalité permet de télécherger et visionner du contenu sans être connecté",
+                            subtitle: "Cela vous permet de télécharger et visionner du contenu sans être connecté",
                             buttons: [
                                 {
                                     "title": "Voir",

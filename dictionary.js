@@ -3,7 +3,7 @@ let dictionary = {
     recom: {
         word: 'recommendations',
         type: 'tuto',
-        question: 'Ouuuulala la recommandation, ce sont des experts canal qui gèrent tout ça! c’est du sérieux !! Et si je vous montrais la vidéo ?',
+        question: 'Ouuuulala la recommandation, ce sont des experts canal qui gèrent tout ça ! C’est du sérieux !! Et si je vous montrais la vidéo ?',
         text_button: 'Tuto Recommendations',
         answer_yes: 'Avec plaisir !',
         answer_no: 'Non merci.',
@@ -12,7 +12,7 @@ let dictionary = {
     profil: {
         word: 'profil',
         type: 'tuto',
-        question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gerer votre profil ?',
+        question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gérer votre profil ?',
         text_button: 'Tuto Profils',
         answer_yes: 'Oui ça m\'intéresse !',
         answer_no: 'Ca ira les filles',
@@ -21,7 +21,7 @@ let dictionary = {
     avatar: {
         word: 'profil',
         type: 'tuto',
-        question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gerer votre profil ?',
+        question: 'Ouuhh ça ma fait peur ce petit bruit ! À chaque notification je sursaute.\nVous voulez savoir comment gérer votre profil ?',
         text_button: 'Tuto Profils',
         answer_yes: 'Oui ça m\'intéresse !',
         answer_no: 'Ca ira les filles',
@@ -30,7 +30,7 @@ let dictionary = {
     revoir: {
         word: 'revoir',
         type: 'tuto',
-        question: 'Toujours en retard ! C’est fou les gens ne sont jamais à l’heure.\nSur myCanal on peux revoir son programme jusqu’a 8h après le direct. C’est bien ça que vous souhaitez ?',
+        question: 'Toujours en retard ! C’est fou les gens ne sont jamais à l’heure.\nSur MyCanal on peut revoir son programme jusqu’à 8h après le direct. C’est bien ce que vous souhaitez ?',
         text_button: 'Tuto Replay (8h avant)',
         answer_yes: 'Oui tout à fait !',
         answer_no: 'Non merci.',
@@ -39,7 +39,7 @@ let dictionary = {
     offre: {
         word: 'offre',
         type: 'tuto',
-        question: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
+        question: 'Je crois que quelqu\'un s’intéresse à l’offre MyCanal ? Souhaitez-vous en savoir davantage ?',
         text_button: 'Les offres',
         answer_yes: 'Voyons-voir',
         answer_no: 'Je les connais',
@@ -48,7 +48,7 @@ let dictionary = {
     inscrire: {
         word: 'offre',
         type: 'tuto',
-        question: 'Je crois que quelqu\'un s’intéresse à l’offre my canal ? Voulez-vous connaitre les tarifs et les offres my canal ?',
+        question: 'Je crois que quelqu\'un s’intéresse à l’offre MyCanal ? Souhaitez-vous en savoir davantage ?',
         text_button: 'Les offres',
         answer_yes: 'Voyons-voir',
         answer_no: 'Je les connais',
@@ -92,15 +92,15 @@ let dictionary = {
     },
     bye: {
         type: 'answer',
-        question: 'Aurevoir et à bientot !'
+        question: 'Aurevoir et revenez vite !'
     },
     aurevoir: {
         type: 'answer',
-        question: 'Aurevoir et à bientot !'
+        question: 'Aurevoir et revenez vite !'
     },
     ciao: {
         type: 'answer',
-        question: 'Aurevoir et à bientot !'
+        question: 'Aurevoir et revenez vite !'
     },
     merci: {
         type: 'answer',
